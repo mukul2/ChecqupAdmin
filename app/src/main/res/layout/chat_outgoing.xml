@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="right"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="20dp"
+        android:src="#cccccc"
+        android:id="@+id/profile"
+        android:visibility="gone"
+        android:layout_height="20dp"
+        />
+    <TextView
+        android:textAllCaps="true"
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:text="12:56 PM 1 june 2019"
+        android:textSize="12dp"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="00dp"
+        android:background="@drawable/right_msg_back"
+        android:text="hello adad asdad asd ad asdad adad "
+        android:textColor="@android:color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/tv_body"
+        android:paddingBottom="10dp"
+        android:textSize="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
