@@ -24,6 +24,7 @@ import com.chequp.admin.model.PublicLatestQueryModel;
 import com.chequp.admin.model.QueryModel;
 import com.chequp.admin.model.ServiceNameInfo;
 import com.chequp.admin.model.ServiceNameRate;
+import com.chequp.admin.model.SettingsModel;
 import com.chequp.admin.model.Status;
 import com.chequp.admin.model.StatusMessage;
 import com.chequp.admin.model.VideoCallHistoryModel;
@@ -54,9 +55,17 @@ public interface ApiInterface {
                                                      @Field("id") String patient_id,
                                                      @Field("user_type") String user_type);
 
+    @FormUrlEncoded
+    @POST("update_setting_percentage")
+    Call<StatusMessage> update_setting_percentage(@Header("Authorization") String token,
+                                                     @Field("fees") String fees);
+
 
     @POST("all_withdrawal_request")
     Call<List<WitdhdrawFull>> all_withdrawal_request(@Header("Authorization") String token);
+
+    @POST("get_setting_list")
+    Call<List<SettingsModel>> get_setting_list(@Header("Authorization") String token);
 
     @FormUrlEncoded
     @POST("update_withdrawal_request")

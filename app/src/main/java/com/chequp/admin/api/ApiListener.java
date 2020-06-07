@@ -22,6 +22,7 @@ import com.chequp.admin.model.PublicLatestQueryModel;
 import com.chequp.admin.model.QueryModel;
 import com.chequp.admin.model.ServiceNameInfo;
 import com.chequp.admin.model.ServiceNameRate;
+import com.chequp.admin.model.SettingsModel;
 import com.chequp.admin.model.Status;
 import com.chequp.admin.model.StatusMessage;
 import com.chequp.admin.model.VideoCallHistoryModel;
@@ -30,6 +31,12 @@ import com.chequp.admin.model.WitdhdrawFull;
 import java.util.List;
 
 public class ApiListener {
+    public interface SettingUpdateListener {
+        void onSettingUpdateSuccess(StatusMessage response);
+
+        void onSettingUpdateFailed(String msg);
+    }
+
     public interface PaymentListDownloadListener {
         void onPaymentListDownloadSuccess(AllCollectionWithdraModel response);
 
@@ -40,6 +47,12 @@ public class ApiListener {
         void onAllWitdhdrawListDownloadSuccess(List<WitdhdrawFull> response);
 
         void onAllWitdhdrawListDownloadFailed(String msg);
+    }
+
+    public interface AllSettingListtListDownloadListener {
+        void onAllSettingListDownloadSuccess(List<SettingsModel> response);
+
+        void onAllSettingListDownloadFailed(String msg);
     }
 
     public interface BasicApiListener {

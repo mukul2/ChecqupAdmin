@@ -3,12 +3,12 @@ package com.chequp.admin.model;
 import java.util.List;
 
 public class AllCollectionWithdraModel {
-    Integer total_bill;
-    Integer all_widthdraw;
+    float total_bill;
+    float all_widthdraw;
     List<PaymentModel> bill_details;
     List<WidthdrawModel> widthdraw_details;
 
-    public Integer getTotal_bill() {
+    public float getTotal_bill() {
         return total_bill;
     }
 
@@ -16,7 +16,7 @@ public class AllCollectionWithdraModel {
         this.total_bill = total_bill;
     }
 
-    public Integer getAll_widthdraw() {
+    public float getAll_widthdraw() {
         return all_widthdraw;
     }
 

@@ -27,6 +27,7 @@ import com.chequp.admin.model.PublicLatestQueryModel;
 import com.chequp.admin.model.QueryModel;
 import com.chequp.admin.model.ServiceNameInfo;
 import com.chequp.admin.model.ServiceNameRate;
+import com.chequp.admin.model.SettingsModel;
 import com.chequp.admin.model.Status;
 import com.chequp.admin.model.StatusMessage;
 import com.chequp.admin.model.VideoCallHistoryModel;
@@ -75,6 +76,23 @@ public class Api {
             }
         });
     }
+    public void update_setting_percentage(String token, String fees, final ApiListener.SettingUpdateListener listener) {
+        ApiClient.getApiInterface().update_setting_percentage(token, fees).enqueue(new Callback<StatusMessage>() {
+            @Override
+            public void onResponse(@NonNull Call<StatusMessage> call, @NonNull Response<StatusMessage> response) {
+                if (response != null) {
+                    listener.onSettingUpdateSuccess(response.body());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<StatusMessage> call, @NonNull Throwable t) {
+                listener.onSettingUpdateFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 
     public void all_withdrawal_request(String token, final ApiListener.AllWitdhdrawListtListDownloadListener listener) {
         ApiClient.getApiInterface().all_withdrawal_request(token).enqueue(new Callback<List<WitdhdrawFull>>() {
@@ -90,6 +108,24 @@ public class Api {
             @Override
             public void onFailure(@NonNull Call<List<WitdhdrawFull>> call, @NonNull Throwable t) {
                 listener.onAllWitdhdrawListDownloadFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void get_setting_list(String token, final ApiListener.AllSettingListtListDownloadListener listener) {
+        ApiClient.getApiInterface().get_setting_list(token).enqueue(new Callback<List<SettingsModel>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<SettingsModel>> call, @NonNull Response<List<SettingsModel>> response) {
+                if (response != null) {
+                    listener.onAllSettingListDownloadSuccess(response.body());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<SettingsModel>> call, @NonNull Throwable t) {
+                listener.onAllSettingListDownloadFailed(t.getLocalizedMessage());
             }
         });
     }
